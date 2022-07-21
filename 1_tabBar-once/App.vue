@@ -1,10 +1,10 @@
 <template>
   <div>
-    <MyHeader title="TabBar"></MyHeader>
-    <div style="margin-top: 45px">
+    <MyHeader title="购物车"></MyHeader>
+    <div style="padding-top: 45px">
       <component :is="comName"></component>
     </div>
-    <MyTabBar :list="tabList" @changeComponent="changeComponent"></MyTabBar>
+    <MyTabBar :list="tabList" @changeFn="changeFn"></MyTabBar>
   </div>
 </template>
 
@@ -12,8 +12,8 @@
 import MyHeader from "./components/MyHeader.vue";
 import MyTabBar from "./components/MyTabBar.vue";
 import MyGoodsList from "./views/MyGoodsList.vue";
-import MyGoodsSearch from "./views/MyGoodsSearch.vue";
 import MyUserInfo from "./views/MyUserInfo.vue";
+import MyGoodsSearch from "./views/MyGoodsSearch.vue";
 export default {
   name: "App",
   data() {
@@ -42,15 +42,13 @@ export default {
     MyHeader,
     MyTabBar,
     MyGoodsList,
-    MyGoodsSearch,
     MyUserInfo,
+    MyGoodsSearch,
   },
   methods: {
-    changeComponent(item) {
+    changeFn(item) {
       this.comName = item.componentName;
     },
   },
 };
 </script>
-
-<style></style>
